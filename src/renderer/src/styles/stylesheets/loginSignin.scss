@@ -1,0 +1,54 @@
+@use 'variables' as variables;
+
+.login,
+.signin {
+  width: 30rem;
+  background-color: variables.$color-bright-200;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem 1rem rgba(variables.$color-dark, 0.1);
+  padding: 2rem;
+  height: fit-content;
+
+  &__logo {
+    max-width: 50%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  &__content {
+    font-size: 0.9rem;
+    background-color: variables.$color-bright-100;
+    margin-top: 2rem;
+    padding: 1.75rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    line-height: 1.2rem;
+    & p {
+      line-height: 1.5rem;
+
+      &:first-of-type {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  &__inputs {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__submit {
+    margin-top: 0.5rem;
+  }
+
+  &__signup {
+    font-size: 0.8rem;
+    padding-bottom: 0;
+  }
+}

@@ -1,0 +1,81 @@
+@use 'variables' as variables;
+
+.gameinterface__revising {
+  background-color: variables.$color-bright-200;
+  max-width: 60rem;
+  padding: 2rem;
+  box-shadow: 0 0 2rem 1rem rgba(0, 0, 0, 0.15);
+
+  &__header {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 2rem;
+
+    & img {
+      object-fit: contain;
+      max-width: 13rem;
+    }
+
+    &__bubble {
+      position: relative;
+      background-color: white;
+      padding: 2rem 3rem;
+      font-size: 1.1rem;
+      line-height: 2rem;
+      border-radius: 3rem;
+      &::before {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 1rem solid transparent;
+        border-right: 1rem solid transparent;
+        border-top: 6rem solid white;
+        position: absolute;
+        top: 50%;
+        left: -5%;
+        transform: rotate(65deg);
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    height: 100%;
+  }
+
+  &__table {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    width: 100%;
+    font-size: 2rem;
+    background-color: variables.$color-bright-100;
+    border-radius: 0 0.5rem 0.5rem 0;
+
+    & table {
+      & td {
+        padding: 0.5rem;
+      }
+    }
+
+    &__row {
+      transition: all 0.2s ease;
+
+      &:hover {
+        border-bottom: 1px solid lightgray;
+        transform: scale(1.2);
+      }
+    }
+
+    &__figure {
+      color: variables.$color-orange;
+      font-weight: 600;
+    }
+
+    &__result {
+      color: variables.$color-green;
+      font-weight: 600;
+    }
+  }
+}

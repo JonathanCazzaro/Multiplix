@@ -1,0 +1,53 @@
+@use 'variables' as variables;
+
+.gameinterface__home {
+  background-color: variables.$color-bright-200;
+  max-width: 60rem;
+  padding: 1.5rem;
+  box-shadow: 0 0 2rem 1rem rgba(0, 0, 0, 0.15);
+
+  &__header {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+
+    & h1 {
+      font-size: 1.75rem;
+      color: variables.$color-orange;
+    }
+
+    & img {
+      object-fit: contain;
+      max-width: 15rem;
+    }
+  }
+
+  &__totalsuccessrate {
+    background-color: lightgray;
+    border-radius: 1rem;
+    margin: 1rem 0;
+  }
+
+  &__content {
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    background-color: lightgray;
+    & h2 {
+      font-size: 1.5rem;
+      color: variables.$color-dark;
+    }
+  }
+
+  &__statcard {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+
+    &__progress {
+      display: inline-block;
+      width: 4rem;
+    }
+  }
+}

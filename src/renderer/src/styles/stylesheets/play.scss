@@ -1,0 +1,318 @@
+@use './variables' as variables;
+@use './mixins' as mixins;
+
+.gameinterface {
+  // --------------- STARTBOARD ---------------
+  &__startboard {
+    @include mixins.gameInterface;
+
+    & h1 {
+      color: variables.$color-orange;
+    }
+
+    &__details {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      flex: 1 1 0;
+      margin: 1.5rem 0;
+
+      &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid lightgrey;
+        width: fit-content;
+        background-color: variables.$color-bright-100;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        flex: 1 1 0;
+        width: 0;
+
+        &__content {
+          margin-top: 1rem;
+          text-align: center;
+          & h2 {
+            font-size: 1rem;
+            line-height: 1.2rem;
+            font-weight: 600;
+          }
+
+          & p {
+            font-size: 1.25rem;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid lightgrey;
+          }
+        }
+      }
+    }
+
+    &__buttons {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+
+  // --------------- PLAYBOARD ---------------
+  &__playboard {
+    @include mixins.gameInterface;
+    width: 55rem;
+
+    &__header {
+      display: flex;
+      gap: 3rem;
+      margin-bottom: 2rem;
+
+      & img {
+        object-fit: contain;
+        max-width: 13rem;
+      }
+
+      &__bubble {
+        position: relative;
+        background-color: white;
+        width: 100%;
+        padding: 2rem 3rem 3.5rem;
+        font-size: 1rem;
+        line-height: 2rem;
+        border-radius: 3rem;
+        &::before {
+          content: '';
+          width: 0;
+          height: 0;
+          border-left: 1rem solid transparent;
+          border-right: 1rem solid transparent;
+          border-top: 6rem solid white;
+          position: absolute;
+          top: 50%;
+          left: -5%;
+          transform: rotate(65deg);
+        }
+
+        &__buttons {
+          position: absolute;
+          bottom: 1rem;
+          right: 1.5rem;
+
+          & button {
+            background-color: transparent;
+            &:hover {
+              color: variables.$color-orange;
+              transform: scale(1.2);
+            }
+
+            & svg {
+              width: 1.5rem;
+              height: 1.5rem;
+            }
+          }
+        }
+      }
+    }
+
+    &__indicators {
+      display: flex;
+      justify-content: right;
+      align-items: center;
+      gap: 1.5rem;
+      background-color: lightgray;
+      padding: 0.75rem;
+      border-radius: 0.75rem;
+
+      &__item {
+        background-color: variables.$color-blue;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.25rem 0.75rem;
+        border-radius: 10rem;
+
+        & svg {
+          width: 1.75rem;
+          height: 1.75rem;
+          color: white;
+        }
+
+        & span {
+          color: variables.$color-bright-100;
+          font-size: 1.5rem;
+          padding-right: 0.25rem;
+          width: 3ch;
+          text-align: center;
+        }
+
+        &--timer {
+          margin-left: 0;
+          margin-right: auto;
+          justify-content: flex-end;
+          width: 100%;
+          height: 1rem;
+          background-color: darkgray;
+
+          & div {
+            height: 100%;
+            border-radius: 10rem;
+            width: 100%;
+            max-width: 100%;
+            transition: max-width 1000ms linear;
+          }
+        }
+      }
+    }
+
+    &__calculation {
+      margin-top: 1rem;
+      background-color: lightgray;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      max-height: 0;
+      transition: all 500ms ease;
+
+      &__content {
+        position: relative;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      &__question {
+        font-size: 2rem;
+        font-weight: 600;
+        line-height: 1.5rem;
+      }
+
+      &__numerals {
+        font-size: 2rem;
+        width: 100%;
+        font-weight: 600;
+        padding: 0.3rem 1.5rem;
+        border-radius: 0.75rem;
+        background-color: variables.$color-bright-200;
+        letter-spacing: 0.5rem;
+        text-align: center;
+
+        & span {
+          color: variables.$color-orange;
+          font-size: 3rem;
+        }
+      }
+
+      &__usejoker {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        & svg {
+          width: 1.25rem;
+          height: 1.25rem;
+        }
+      }
+
+      &__answer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        margin-top: 1rem;
+
+        &__input {
+          display: flex;
+          filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.25));
+
+          & label {
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            width: max-content;
+            padding: 0 1.25rem;
+            border-radius: 0.5rem 0 0 0.5rem;
+            background-color: variables.$color-blue;
+            color: variables.$color-bright-100;
+          }
+
+          & input {
+            border: 0;
+            border-radius: 0 0.5rem 0.5rem 0;
+            width: 10rem;
+            text-align: center;
+            font-size: 1.5rem;
+            padding: 0.5rem 0;
+          }
+        }
+
+        &__suggestions {
+          text-align: center;
+          ul {
+            display: flex;
+            margin: 1rem 0 0;
+            padding: 0;
+            justify-content: center;
+            gap: 1rem;
+            list-style-type: none;
+          }
+        }
+
+        &__buttons {
+          border-radius: 0.5rem;
+          background-color: rgba(255, 255, 255, 0.2);
+          display: flex;
+          gap: 1rem;
+          overflow: hidden;
+          transition: all 0.2s ease;
+        }
+      }
+    }
+  }
+
+  // --------------- FINISH BOARD ---------------
+  &__finishboard {
+    @include mixins.gameInterface;
+    width: 42rem;
+
+    & h1 {
+      font-weight: 600;
+      font-size: 2rem;
+      color: green;
+    }
+
+    &__stats {
+      & span {
+        font-weight: 600;
+        font-size: 1.25rem;
+      }
+    }
+
+    &__buttons {
+      display: flex;
+      gap: 1rem;
+      width: fit-content;
+      margin: 1.5rem 0 0 auto;
+    }
+
+    &__trophy {
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 2rem auto;
+      background-color: snow;
+      border-radius: 1rem;
+      box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.25);
+      max-height: 0;
+      overflow: hidden;
+      height: 100%;
+      transition: all 0.25s ease;
+      & img {
+        width: 12rem;
+      }
+      & p {
+        text-align: center;
+      }
+    }
+  }
+}

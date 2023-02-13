@@ -1,0 +1,62 @@
+@use 'variables' as variables;
+
+.timer-long {
+  background-color: variables.$color-green;
+}
+
+.timer-short {
+  background-color: variables.$color-red;
+}
+
+.show-calculation {
+  max-height: 30rem;
+}
+
+.show-calculation-buttons {
+  box-shadow: 0 0 0.75rem 0.2rem rgba(0, 0, 0, 0.1);
+  padding: 0.75rem 2rem;
+  max-height: 10rem;
+}
+
+.hide-calculation-buttons {
+  padding: 0;
+  max-height: 0;
+}
+
+.correct-answer {
+  background-color: variables.$color-green;
+  font-weight: 600;
+}
+
+.wrong-answer {
+  background-color: variables.$color-red;
+  font-weight: 600;
+  color: variables.$color-bright-100;
+}
+
+.show-trophy {
+  max-height: 25rem;
+  padding: 1rem;
+}
+
+.has-new-rewards::before {
+  position: absolute;
+  content: '';
+  width: 0.6rem;
+  height: 0.6rem;
+  background-color: variables.$color-orange;
+  border-radius: 10rem;
+  top: 1rem;
+  left: 0.85rem;
+}
+
+.new-reward::after {
+  position: absolute;
+  content: '';
+  width: 1.75rem;
+  height: 1.75rem;
+  background-color: variables.$color-orange;
+  border-radius: 10rem;
+  right: 0;
+  transform: translate(0.5rem, -0.5rem);
+}
