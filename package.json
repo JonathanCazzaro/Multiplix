@@ -4,7 +4,7 @@
   "description": "Révise tes tables de multiplication en jouant !",
   "main": "./out/main/index.js",
   "author": "Jonathan Cazzaro",
-  "homepage": "",
+  "homepage": "https://github.com/JonathanCazzaro/Multiplix",
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
